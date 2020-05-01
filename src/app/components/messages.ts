@@ -1,0 +1,1 @@
+export const MSGSERVERERROR: string = 'No es posible completar la solicitud al servidor. Si el problema persiste, contáctenos.';

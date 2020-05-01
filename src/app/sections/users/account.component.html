@@ -1,0 +1,26 @@
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+aria-haspopup="true" aria-expanded="false">
+
+<div style="display:inline-flex" class="mt-4">
+  Bienvenid@
+  <img src="{{ authService.payload.photo }}" style="width: 30px; height: 30px; margin-top:17px" />
+  {{ authService.payload.fullname }}
+</div>
+
+</a>
+
+
+<div class="dropdown-menu dropdown-menu-right">
+  <form #form="ngForm" class="px-4 py-3" style="width:300px;">
+
+    <div *ngIf="logueed">
+      Hola!
+
+      <a class="nav-link" [routerLink]="['/projects/userstories']">Historias de usuario</a>
+
+      <button type="submit" (click)="tryLogout()" class="btn btn-primary">Cerrar sesión</button>
+    </div>
+
+  </form>
+
+</div>

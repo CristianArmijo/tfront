@@ -1,0 +1,49 @@
+<div id="top"></div>
+<app-menu></app-menu>
+
+<div class="container mt-5">
+    <form #form="ngForm">
+        <div class="form-row">
+            
+            <div class="col-md-4 mb-3">
+                <h4>Proyectos</h4>
+
+                <div *ngFor="let project of projects" class="card mt-5" style="width: 25rem;">
+                    <div class="card-body">
+                        <button (click)="tryGetUserStories(project.id)" style="width: 100%;">
+                            <h5 class="card-title">{{ project.name }}</h5>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 mb-3"></div>
+
+            <div class="col-md-6 mb-3">
+                <h4>Historias de usuarios</h4>
+                <h5 *ngIf="project.name != ''">Proyecto: {{ project.name }}</h5>
+
+                <div *ngFor="let userStory of userStories" class="card mt-5" style="width: 25rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ userStory.subject }}</h5>
+                        <p class="card-text"></p>
+                    </div>
+                    <div class="card-body" style="display: inline-flex; width: 100%;">
+                        <div style="width: 50%;">
+                            Estado:<br />
+                            {{ userStory.status.name }}
+                        </div>
+                        <div style="width: 50%; float: right;">
+                            Asignado a:<br />
+                            <div style="display:inline-flex">
+                                <img src="{{ userStory.photo }}" style="width: 30px;" />
+                                {{ (userStory.username)? userStory.username : 'Sin asignar' }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>
